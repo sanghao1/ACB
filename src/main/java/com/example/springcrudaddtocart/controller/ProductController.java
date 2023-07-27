@@ -23,9 +23,4 @@ public class ProductController {
         return "home";
     }
 
-    @GetMapping("/producr-register")
-    public String productRegister() {
-        return "product-register";
-
-    }
 }

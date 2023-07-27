@@ -24,6 +24,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
+                    <th>Price</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -31,6 +32,8 @@
                 <tr th:each="prod : ${products}">
                     <td th:text="${prod.id}"></td>
                     <td th:text="${prod.name}"></td>
+                    <td th:text="${prod.price}"></td>
+
                     <td>
                         <form th:action="@{/products}" th:method="post" th:object="${product}">
                             <input type="hidden" th:name="id" th:value="${prod.id}">
