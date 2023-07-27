@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89655b09-2086-4eee-9f10-28df02de93b4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/springcrudaddtocart/controller/CartController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/home-1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/springcrudaddtocart/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/springcrudaddtocart/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/springcrudaddtocart/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/springcrudaddtocart/controller/ProductController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,9 +20,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -52,8 +54,8 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.36206895",
     "spring.configuration.checksum": "b5ca1be83c3e93feaf7dc7a05a32bc74",
     "vue.rearranger.settings.migration": "true"
@@ -82,7 +84,7 @@
       <option name="presentableId" value="Default" />
       <updated>1690445306084</updated>
       <workItem from="1690445307190" duration="184000" />
-      <workItem from="1690445494236" duration="8316000" />
+      <workItem from="1690445494236" duration="12719000" />
     </task>
     <servers />
   </component>
