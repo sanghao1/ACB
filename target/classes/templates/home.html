@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+<head>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Book Store</title>
+</head>
+<body>
+
+
+<div class="container">
+    <h2>List Products</h2>
+    <div class="rows">
+        <div class="col-sm-9">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="prod : ${products}">
+                    <td th:text="${prod.id}"></td>
+                    <td th:text="${prod.name}"></td>
+                    <td>
+                        <form th:action="@{/products}" th:method="post" th:object="${product}">
+                            <input type="hidden" th:name="id" th:value="${prod.id}">
+                            <button class="btn btn-primary btn-sm" type="submit">Add</button>
+
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+
+
+            </table>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
