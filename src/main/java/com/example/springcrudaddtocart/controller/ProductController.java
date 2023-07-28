@@ -1,14 +1,15 @@
 package com.example.springcrudaddtocart.controller;
-
-
-import com.example.springcrudaddtocart.entity.CartEntity;
 import com.example.springcrudaddtocart.entity.ProductEntity;
+import com.example.springcrudaddtocart.model.Product;
 import com.example.springcrudaddtocart.service.ProductService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -16,31 +17,26 @@ import java.util.List;
 @RequestMapping("products")
 public class ProductController {
     @Autowired
-    private ProductService productService;
+    ProductService productService;
+
     @GetMapping("/home")
-    public String home(Model model) {
-        model.addAttribute("products", productService.getAll());
+    public String getProducts(@ModelAttribute Product product, Model model){
+        List<Product> products = productService.getAllProduct();
+        model.addAttribute("products", products);
         model.addAttribute("product", new ProductEntity());
-
-        return "home";
+        return "product/productList";
     }
 
-
-    @Autowired
-    private CartEntity cartEntity;
-
-    @PostMapping
-    public String add(@ModelAttribute ProductEntity product, Model model) {
-        System.out.println("requstID" + product.getId());
-        cartEntity.addItem(product);
-
-        model.addAttribute("products", productService.getAll());
-        model.addAttribute("product", new ProductEntity());
-        return "home-1";
+    @GetMapping("addNew")
+    public String getFormAddNewProduct(@ModelAttribute Product product, Model model){
+        model.addAttribute("product", product);
+        return "product/addNewForm";
     }
-
-    @GetMapping("rest")
-    public ResponseEntity<List<ProductEntity>> add() {
-        return ResponseEntity.status(200).body(productService.getAll());
+    @PostMapping("addNew")
+    public String addNew(@ModelAttribute @Valid Product product, Model model){
+        productService.createProduct(product);
+        List<Product> products = productService.getAllProduct();
+        model.addAttribute("products", products);
+        return "product/productList";
     }
 }

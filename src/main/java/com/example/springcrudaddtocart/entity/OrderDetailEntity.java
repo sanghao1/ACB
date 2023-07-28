@@ -2,53 +2,22 @@ package com.example.springcrudaddtocart.entity;
 
 import jakarta.persistence.*;
 
-@Table(name = "order_details")
+import jakarta.persistence.*;
+import lombok.Data;
+
 @Entity
+@Table(name = "orderdetails")
+@Data
 public class OrderDetailEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-
     @ManyToOne
     @JoinColumn(name = "order_entity_id")
-    private OrderEntity orderEntity;
-
-    @ManyToOne
+    OrderEntity order;
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "product_entity_id")
-    private ProductEntity productEntity;
-
-    private int quantity;
-
-    public ProductEntity getProductEntity() {
-        return productEntity;
-    }
-
-    public void setProductEntity(ProductEntity productEntity) {
-        this.productEntity = productEntity;
-    }
-
-    public OrderEntity getOrderEntity() {
-        return orderEntity;
-    }
-
-    public void setOrderEntity(OrderEntity orderEntity) {
-        this.orderEntity = orderEntity;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
+    ProductEntity product;
+    private Integer quantity;
 }

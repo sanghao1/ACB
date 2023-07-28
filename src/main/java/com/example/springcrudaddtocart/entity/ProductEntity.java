@@ -1,39 +1,24 @@
 package com.example.springcrudaddtocart.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
-@Table(name = "products")
+import java.util.List;
+
 @Entity
+@Table(name = "products")
+@Data
 public class ProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-
-    private int price;
     private String name;
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    private String description;
+    private Double unitPrice;
+    @OneToMany(mappedBy = "product",
+            fetch = FetchType.EAGER,
+            orphanRemoval = true,
+            cascade = CascadeType.ALL)
+    List<OrderDetailEntity> orderDetails;
 }
